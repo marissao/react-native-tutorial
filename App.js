@@ -5,6 +5,7 @@ import { NavigationContainer } from "@react-navigation/native";
 import HomeScreen from "./src/screens/HomeScreen";
 import NewScreen from "./src/screens/NewScreen";
 import { Icon } from "react-native-elements";
+import {StyleSheet} from "react-native";
 
 const Stack = createStackNavigator();
 
@@ -20,7 +21,20 @@ export default function App() {
           headerTintColor: "#fff",
         }}
       >
-        <Stack.Screen name='Home' component={HomeScreen} />
+        <Stack.Screen     
+        name="Home" 
+        component={HomeScreen} 
+        options={{
+            headerRight: () => (
+                <Icon 
+                name="plus" 
+                type="feather" 
+                color="#fff"
+                style={style.headerIcon}
+            />
+        )
+        }}
+    />
         <Stack.Screen
           name='New'
           component={NewScreen}
@@ -35,5 +49,11 @@ export default function App() {
     </NavigationContainer>
   );
 }
+
+const style = StyleSheet.create({
+  headerIcon: {
+    marginRight: 10
+  }
+});
 
 // Apply header styles to Navigator component instead of Screen component to avoid repeating
