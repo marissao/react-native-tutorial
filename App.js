@@ -24,16 +24,17 @@ export default function App() {
         <Stack.Screen     
         name="Home" 
         component={HomeScreen} 
-        options={{
+        options={({navigation}) => ({
             headerRight: () => (
                 <Icon 
                 name="plus" 
                 type="feather" 
-                color="#fff"
+                color="#ffffff"
                 style={style.headerIcon}
+                onPress={() => navigation.navigate('New')}
             />
         )
-        }}
+        })}
     />
         <Stack.Screen
           name='New'
@@ -42,7 +43,7 @@ export default function App() {
             headerStyle: {
               backgroundColor: "#228CDB",
             },
-            headerTintColor: "fff",
+            headerTintColor: "#ffffff",
           }}
         />
       </Stack.Navigator>
