@@ -1,3 +1,4 @@
+import Toast from 'react-native-toast-message';
 import "react-native-gesture-handler"; // Place on top of app
 import React from "react";
 import { createStackNavigator } from "@react-navigation/stack";
@@ -47,6 +48,7 @@ export default function App() {
           }}
         />
       </Stack.Navigator>
+      <Toast ref={(ref) => Toast.setRef(ref)} />
     </NavigationContainer>
   );
 }
